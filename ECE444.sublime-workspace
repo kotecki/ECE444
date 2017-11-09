@@ -27,7 +27,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 4532,
+				"buffer_size": 4512,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -209,7 +209,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
@@ -247,7 +247,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -256,15 +256,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4532,
+						"buffer_size": 4512,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3410,
-								3410
+								2084,
+								2084
 							]
 						],
 						"settings":
@@ -275,10 +275,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1081.0,
+						"translation.y": 392.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -309,7 +309,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -317,7 +317,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -358,7 +358,7 @@
 	"project": "ECE444.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
