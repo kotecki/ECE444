@@ -209,7 +209,7 @@
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -263,8 +263,8 @@
 						"selection":
 						[
 							[
-								2084,
-								2084
+								2330,
+								2330
 							]
 						],
 						"settings":
@@ -317,7 +317,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -358,7 +358,7 @@
 	"project": "ECE444.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
