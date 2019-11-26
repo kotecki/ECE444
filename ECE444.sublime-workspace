@@ -27,7 +27,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 5035,
+				"buffer_size": 5046,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -247,7 +247,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -256,15 +256,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5035,
+						"buffer_size": 5046,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1566,
-								1566
+								2341,
+								2341
 							]
 						],
 						"settings":
@@ -275,10 +275,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 337.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -309,7 +309,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
