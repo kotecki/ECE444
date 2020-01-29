@@ -1,13 +1,6 @@
-%% Template file for running NGspice
-%  Designed to work with CPPsim and the Sue2 editor.
-%  This Matlab script can be placed in any directory.
-%  The script is divided into three sections:
-%     Section 1: Input the location of your CppSim directory, library name,
-%                and schematic name.
-%     Section 2: Input the simulation and any device parameters.
-%     Section 3: Load simulation results and analyze data.
+%% Matlab m-file for ECE 445 NMOS Analysis
 
-%% Copyright (c) 2020 by David E. Kotecki. All rights reserved.
+%% Copyright (c) 2019 by David E. Kotecki. All rights reserved.
 
 % Redistribution and use in source and binary forms, with or without
 % modification, are permitted provided that the following conditions are
@@ -35,8 +28,8 @@
 %% Section 1: Define: CPPSim location, library, and schematic
 clear variables;  
 CppSim_Location = sprintf('C:/CppSim'); % location of CppSim directory
-Design_Library = sprintf('Library_Name'); % name of design library
-Schematic_Name = sprintf('Schematic_Name'); % name of schematic
+Design_Library = sprintf('ECE445_2019'); % name of design library
+Schematic_Name = sprintf('PMOS_65nm_test'); % name of schematic
 
 %% Section 2: Generate HSPC file and run NGspice
 addpath(sprintf('%s/CppSimShared/HspiceToolbox', CppSim_Location)); % add ngspice matlab toolbox to the path
@@ -52,16 +45,20 @@ fprintf(hspcfile, '**** NGspice HSPC file **** \n');
 fprintf(hspcfile, '**** File: %s/%s **** \n', pwd, hspc_filename);
 fprintf(hspcfile, '**** Date: %s **** \n\n', datestr(datetime('now')));
 
-fprintf(hspcfile, '**** Simulation Statement ****\n');
-fprintf(hspcfile, '.tran 5u 5m 0 0 \n\n');
-
 fprintf(hspcfile, '**** Paramenter Statements ****\n');
-fprintf(hspcfile, '.param res1 = 10000 \n');   % define resistor value res1
-fprintf(hspcfile, '.param res2 = 20000 \n');   % define resistor value res2 
-fprintf(hspcfile, '.param res3 = 5000 \n\n');  % define resistor value res3
+vdd = -1.2;
+fprintf(hspcfile, '.param pmos_l = 65e-9 \n');  
+fprintf(hspcfile, '.param pmos_w = 100e-9 \n');
+fprintf(hspcfile, '.param pmos_m = 10 \n');
+fprintf(hspcfile, '.param vds = 0 \n');
+fprintf(hspcfile, '.param vgs = 0\n\n');
+
+fprintf(hspcfile, '**** Simulation Statement ****\n');
+fprintf(hspcfile, '.dc Vds 0 ''vds'' -.01 \n\n');
 
 fprintf(hspcfile, '**** Include Statements ****\n');
-fprintf(hspcfile, '.include ../../../SpiceModels/ECE214_models.mod \n\n');
+fprintf(hspcfile, '.include ../../../SpiceModels/ECE214_models.mod \n');
+fprintf(hspcfile, '.include ../../../SpiceModels/ECE445_models.mod \n\n');
 
 % fprintf(hspcfile, '**** Initial Conditions ****\n');
 % fprintf(hspcfile, '.ic v(out1)=5 \n\n');
@@ -73,24 +70,29 @@ fprintf(hspcfile, '.global gnd \n');
 fprintf(hspcfile, '.op \n\n');
 fprintf(hspcfile, '**** End of NGspice hspc file \n');
 fclose(hspcfile);
- 
-ngsim(hspc_filename); % run ngspice  
 
-%% Section 3: Load simulation results and analyze data
+%% Section 3: Run simulation, Load results, and analyze data
 
-data = loadsig('simrun.raw');  % load data from simulation
-time = evalsig(data, 'TIME');  % create vector of time values
-Vout_1 = evalsig(data,'va');   % create vector of node Va voltage values
-Vout_2 = evalsig(data, 'vb');  % create vector of node Vb voltage values
+Fig1 = figure('Position', [200, 75, 850, 600]);
+grid on;
+hold on;
+hspc_set_param('vds', vdd, hspc_filename); % 
 
-fs = 16;   % define font size
-lw = 1.5;  % define linewidth
-FigHandle = figure('Position', [200, 75, 850, 600]);            % set figure size and location
-plot(time.*1000,  Vout_1, time.*1000, Vout_2, 'linewidth',lw);  % plot Vout_1 and Vout_2 vs time
-grid on;                               % add grid
-set(gca, 'fontsize', fs);              % increase font size
-ylabel('y-axis label (units)', 'fontsize', fs); % y-axis label
-xlabel('x-axis label (units)', 'fontsize', fs);   % x-axis label
-title('title of plot');            % title
+%% Loop and run NGspice to generate IDS vs VDS for values of VGS
+for vgs = .0:-.2:vdd
+    hspc_set_param('vgs', vgs, hspc_filename); % set value of vgs
+    legendname = sprintf('Vgs = %0.2fV',vgs); % define legend name
+    ngsim(hspc_filename);  % run ngspice
+    data = loadsig('simrun.raw'); % load simulation results and extract vds and ids
+    vds = evalsig(data,'VOLTAGE');
+    ids = evalsig(data, 'i_vds');
+    igs = evalsig(data, 'i_vgs');
+    plot(vds, -1E3*ids, 'linewidth',2.0, 'displayname', legendname) % plot ids vs vds
+end
+hold off;
+set(gca, 'fontsize', 16); % increase font size
+legend('location', 'nw');
+xlabel('Vds (V)', 'fontsize', 16); % x-axis labels
+ylabel('Ids (mA)', 'fontsize', 16); % y-axis labels
 
 %% end of .m file
