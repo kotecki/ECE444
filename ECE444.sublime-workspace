@@ -27,7 +27,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 5325,
+				"buffer_size": 5441,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -36,7 +36,8 @@
 			"file": "css/myfile.css",
 			"settings":
 			{
-				"buffer_size": 1446,
+				"buffer_size": 1489,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -256,15 +257,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5325,
+						"buffer_size": 5441,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3171,
-								3171
+								3226,
+								3235
 							]
 						],
 						"settings":
@@ -287,15 +288,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1446,
+						"buffer_size": 1489,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								368,
-								368
+								1489,
+								1489
 							]
 						],
 						"settings":
@@ -400,7 +401,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 211.0,
+	"side_bar_width": 219.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
