@@ -27,7 +27,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 5441,
+				"buffer_size": 5471,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -210,7 +210,7 @@
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 24.0
 	},
 	"find_in_files":
 	{
@@ -257,15 +257,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5441,
+						"buffer_size": 5471,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3226,
-								3235
+								4076,
+								4076
 							]
 						],
 						"settings":
@@ -318,7 +318,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 22.0
+		"height": 24.0
 	},
 	"input":
 	{
@@ -359,7 +359,7 @@
 	"project": "ECE444.sublime-project",
 	"replace":
 	{
-		"height": 40.0
+		"height": 44.0
 	},
 	"save_all_on_build": true,
 	"select_file":
