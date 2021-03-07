@@ -27,7 +27,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 5471,
+				"buffer_size": 5809,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -257,15 +257,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5471,
+						"buffer_size": 5809,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3703,
-								3703
+								4384,
+								4384
 							]
 						],
 						"settings":
